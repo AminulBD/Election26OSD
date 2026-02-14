@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>পোলিং স্টেশন ফাইন্ডার | বাংলাদেশ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div>
+        <h1>পোলিং স্টেশন ফাইন্ডার</h1>
+        <p>বাংলাদেশ নির্বাচন তথ্যভান্ডার থেকে ভোটকেন্দ্র, আসন, এরিয়া কোড ও সহায়ক তথ্য একসাথে দেখুন</p>
+      </div>
+      <button id="nearbyBtn" class="btn btn-accent">আমার কাছের কেন্দ্র দেখুন</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <h2>আপনার ভোটকেন্দ্র এখন আরও সহজে</h2>
+        <p>
+          বিভাগ, জেলা, উপজেলা, আসন ও ইউনিয়ন ধরে দ্রুত পোলিং স্টেশন খুঁজুন।
+          কেন্দ্রের ঠিকানা, ভোটার এরিয়া কোড, ভোটার টাইপ এবং ম্যাপ লিংক দেখুন।
+        </p>
+        <p class="hero-subtext">
+          নির্বাচন প্রস্তুতি, মাঠপর্যায়ের সমন্বয়, তথ্য যাচাই এবং নাগরিক সচেতনতার জন্য এই প্ল্যাটফর্মটি
+          বাংলা ভাষায় ব্যবহারযোগ্য করে তৈরি করা হয়েছে।
+        </p>
+        <div class="chips">
+          <span id="totalCenters" class="chip">মোট কেন্দ্র: ...</span>
+          <span id="totalConstituencies" class="chip">মোট আসন: ...</span>
+          <span id="totalParties" class="chip">মোট দল: ...</span>
+        </div>
+      </div>
+      <div id="heroMapShowcase" class="hero-images map-showcase">
+        <p class="status">মানচিত্র লোড হচ্ছে...</p>
+      </div>
+    </section>
+
+    <section class="guide wrap">
+      <h3>ব্যবহার নির্দেশনা ও সহায়তা</h3>
+      <p class="section-subtext">
+        সঠিক ফলাফল পেতে ধাপে ধাপে ফিল্টার নির্বাচন করুন। প্রয়োজনে এরিয়া কোড বা কেন্দ্রের নাম দিয়ে
+        সার্চ করুন এবং ফলাফলে প্রদত্ত ম্যাপ লিংক থেকে লোকেশন নিশ্চিত করুন।
+      </p>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h4>ধাপ ১: এলাকা নির্বাচন</h4>
+          <p>বিভাগ -> জেলা -> উপজেলা -> আসন -> ইউনিয়ন ক্রমে নির্বাচন করলে ফলাফল আরও নির্ভুল হবে।</p>
+        </article>
+        <article class="guide-card">
+          <h4>ধাপ ২: দ্রুত সার্চ</h4>
+          <p>কেন্দ্রের নাম, ইংরেজি নাম, স্লাগ অথবা ভোটার এরিয়া কোড লিখে তাৎক্ষণিকভাবে কেন্দ্র খুঁজুন।</p>
+        </article>
+        <article class="guide-card">
+          <h4>ধাপ ৩: NID সহ যাচাই</h4>
+          <p>NID + জন্মতারিখ দিয়ে সম্ভাব্য এরিয়া কোড মিলিয়ে কেন্দ্র যাচাই করুন। এটি একটি ডেমো ফ্লো।</p>
+        </article>
+        <article class="guide-card">
+          <h4>ধাপ ৪: মাঠে ব্যবহার</h4>
+          <p>মোবাইল বা ডেস্কটপ থেকে তথ্য দেখে দলীয় কর্মী, স্বেচ্ছাসেবক ও নাগরিক সহায়তা কার্যক্রমে ব্যবহার করুন।</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="finder wrap">
+      <h3>কেন্দ্র অনুসন্ধান</h3>
+      <p class="section-subtext">
+        আপনার এলাকার ভোটকেন্দ্র দ্রুত খুঁজতে নিচের যেকোনো একটি পদ্ধতি ব্যবহার করুন। প্রথমটি এলাকা ভিত্তিক,
+        দ্বিতীয়টি NID ও জন্মতারিখ ভিত্তিক আনুমানিক যাচাই।
+      </p>
+      <div class="lookup-tabs">
+        <button id="tabAreaBtn" class="tab-btn active" type="button">এলাকা ভিত্তিক অনুসন্ধান</button>
+        <button id="tabNidBtn" class="tab-btn" type="button">NID + জন্মতারিখ</button>
+      </div>
+      <div id="areaLookupPanel" class="lookup-panel">
+      <div class="grid filters">
+        <label>বিভাগ
+          <select id="divisionSelect"><option value="">সিলেক্ট করুন</option></select>
+        </label>
+        <label>জেলা
+          <select id="districtSelect" disabled><option value="">সিলেক্ট করুন</option></select>
+        </label>
+        <label>উপজেলা/থানা
+          <select id="upazilaSelect" disabled><option value="">সিলেক্ট করুন</option></select>
+        </label>
+        <label>সংসদীয় আসন
+          <select id="constituencySelect" disabled><option value="">সিলেক্ট করুন</option></select>
+        </label>
+        <label>ইউনিয়ন/ওয়ার্ড
+          <select id="unionSelect" disabled><option value="">সিলেক্ট করুন</option></select>
+        </label>
+        <label>ভোটার টাইপ
+          <select id="voterTypeSelect">
+            <option value="">সব</option>
+            <option value="BOTH">পুরুষ-নারী উভয়</option>
+            <option value="MALE">শুধু পুরুষ</option>
+            <option value="FEMALE">শুধু নারী</option>
+          </select>
+        </label>
+      </div>
+      <div class="search-row">
+        <div class="search-autocomplete">
+          <input id="searchInput" type="text" placeholder="কেন্দ্রের নাম, ইংরেজি নাম, স্লাগ, বা এরিয়া কোড লিখুন" autocomplete="off" />
+          <div id="searchSuggestions" class="suggestions hidden" role="listbox" aria-label="কেন্দ্র সাজেশন তালিকা"></div>
+        </div>
+        <button id="searchBtn" class="btn">খুঁজুন</button>
+        <button id="resetBtn" class="btn btn-soft">রিসেট</button>
+      </div>
+      </div>
+      <div id="nidLookupPanel" class="lookup-panel hidden">
+        <div class="grid filters">
+          <label>NID নম্বর
+            <input id="nidInput" type="text" inputmode="numeric" maxlength="17" placeholder="১০/১৩/১৭ সংখ্যার NID" />
+          </label>
+          <label>জন্মতারিখ
+            <input id="dobInput" type="date" />
+          </label>
+          <label>যাচাইকরণ ক্যাপচা (ডেমো)
+            <input id="captchaInput" type="text" placeholder="বাংলায় যে কোনো ৪ অক্ষর লিখুন" maxlength="8" />
+          </label>
+        </div>
+        <p class="note">
+          নোট: এই ওপেন ডেটাসেটে ব্যক্তিগত ভোটার রেকর্ড নেই। তাই NID এর শেষ ৬ ডিজিটকে
+          সম্ভাব্য ভোটার এরিয়া কোড হিসেবে মিলিয়ে কেন্দ্র দেখানো হয়।
+        </p>
+        <div class="search-row">
+          <button id="nidLookupBtn" class="btn">NID দিয়ে কেন্দ্র খুঁজুন</button>
+          <button id="nidResetBtn" class="btn btn-soft">ফর্ম রিসেট</button>
+        </div>
+      </div>
+      <p id="statusText" class="status">ডেটা লোড হচ্ছে...</p>
+    </section>
+
+    <section class="results wrap">
+      <div class="results-head">
+        <h3>অনুসন্ধান ফলাফল</h3>
+        <div class="results-tools">
+          <span id="resultCount">০ টি কেন্দ্র</span>
+          <button id="toggleMapBtn" class="btn btn-soft">ম্যাপ চালু করুন</button>
+        </div>
+      </div>
+      <div id="resultsList" class="cards"></div>
+      <button id="loadMoreBtn" class="btn btn-soft hidden">আরও দেখুন</button>
+    </section>
+
+    <section class="parties wrap">
+      <h3>নিবন্ধিত রাজনৈতিক দল (নির্বাচিত)</h3>
+      <div id="partyGrid" class="party-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>তথ্যসূত্র: বাংলাদেশ নির্বাচন কমিশন (Polling Station Data)</p>
+      <p>প্রজেক্ট: ওপেনসোর্স Polling Center Finder</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
