@@ -44,6 +44,7 @@ git push origin main
 1. Go to `Settings -> Pages`
 2. Set source to **GitHub Actions**
 3. Keep `.github/workflows/deploy-pages.yml` in `main`
+4. Optional: add repository secret `GH_PAGES_ADMIN_TOKEN` (PAT with `repo` and Pages admin rights) to allow workflow auto-enable on first run
 
 ## 7) Verify Live Site
 
